@@ -166,7 +166,7 @@ class Connection(object):
                 else:
                     raise APIError("Unknown response status: {0[status]}".format(data))
             except KeyError:
-                raise APIError("JSON response does not contain status")
+                raise APIError("JSON response does not contain status: {}".format(data))
         else:  # jl
             return (json.loads(line.decode('utf-8')
                                if isinstance(line, _BINARY_TYPE) else line)
